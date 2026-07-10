@@ -1,4 +1,4 @@
-from flask import Flask,redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, url_for
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -214,6 +214,9 @@ def predict():
             filename=bin_image
         )
     )
+from flask import flash, redirect, render_template, request, url_for
+
+
 @app.route("/suggestions", methods=["GET", "POST"])
 def suggestions():
     if request.method == "POST":
@@ -231,6 +234,6 @@ def suggestions():
         return redirect(url_for("suggestions"))
 
     return render_template("suggestions.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
-    
